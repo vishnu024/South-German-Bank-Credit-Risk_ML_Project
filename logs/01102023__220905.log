@@ -1,0 +1,18 @@
+[ 2023-01-10 22:09:06,101 ] 15 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-01-10 22:09:06,101 ] 22 root - INFO - Exporting collection data as pandas dataframe
+[ 2023-01-10 22:09:06,101 ] 21 root - INFO - Reading data from database: german_bank and collection: credit_data
+[ 2023-01-10 22:09:06,171 ] 23 root - INFO - Found columns: Index(['_id', 'status', 'duration', 'credit_history', 'purpose', 'amount',
+       'savings', 'employment_duration', 'installment_rate',
+       'personal_status_sex', 'other_debtors', 'present_residence', 'property',
+       'age', 'other_installment_plans', 'housing', 'number_credits', 'job',
+       'people_liable', 'telephone', 'foreign_worker', 'credit_risk'],
+      dtype='object')
+[ 2023-01-10 22:09:06,171 ] 25 root - INFO - Dropping column: _id 
+[ 2023-01-10 22:09:06,172 ] 27 root - INFO - Row and columns in df: (1000, 21)
+[ 2023-01-10 22:09:06,172 ] 28 root - INFO - Save data in feature store
+[ 2023-01-10 22:09:06,172 ] 33 root - INFO - Create feature store folder if not available
+[ 2023-01-10 22:09:06,173 ] 37 root - INFO - Save df to feature store folder
+[ 2023-01-10 22:09:06,187 ] 42 root - INFO - split dataset into train and test set
+[ 2023-01-10 22:09:06,189 ] 46 root - INFO - create dataset directory folder if not available
+[ 2023-01-10 22:09:06,189 ] 51 root - INFO - Save df to feature store folder
+[ 2023-01-10 22:09:06,203 ] 63 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/config/workspace/artifact/01102023__220906/data_ingestion/feature_store/credit.csv', train_file_path='/config/workspace/artifact/01102023__220906/data_ingestion/dataset/train.csv', test_file_path='/config/workspace/artifact/01102023__220906/data_ingestion/dataset/test.csv')
