@@ -128,11 +128,11 @@ class DataValidation:
             test_df = self.drop_missing_values_columns(df=test_df,report_key_name="missing_values_within_test_dataset")
             
             exclude_columns = [TARGET_COLUMN]
-            '''
+            
             base_df = utils.convert_columns_float(df=base_df, exclude_columns=exclude_columns)
             train_df = utils.convert_columns_float(df=train_df, exclude_columns=exclude_columns)
             test_df = utils.convert_columns_float(df=test_df, exclude_columns=exclude_columns)
-            '''
+            
 
 
             logging.info(f"Is all required columns present in train df")

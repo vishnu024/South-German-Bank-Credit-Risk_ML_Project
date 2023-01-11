@@ -5,8 +5,8 @@ import sys,os
 from credit.entity import config_entity
 from credit.components.data_ingestion import DataIngestion
 from credit.components.data_validation import DataValidation
-'''
 from credit.components.data_transformation import DataTransformation
+'''
 from credit.components.model_trainer import ModelTrainer
 from credit.components.model_evaluation import ModelEvaluation
 from credit.components.model_pusher import ModelPusher
@@ -28,14 +28,14 @@ def start_training_pipeline():
                         data_ingestion_artifact=data_ingestion_artifact)
 
         data_validation_artifact = data_validation.initiate_data_validation()
-        '''
+        
 
         #data transformation
         data_transformation_config = config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
         data_transformation = DataTransformation(data_transformation_config=data_transformation_config, 
         data_ingestion_artifact=data_ingestion_artifact)
         data_transformation_artifact = data_transformation.initiate_data_transformation()
-        
+        '''
         #model trainer
         model_trainer_config = config_entity.ModelTrainerConfig(training_pipeline_config=training_pipeline_config)
         model_trainer = ModelTrainer(model_trainer_config=model_trainer_config, data_transformation_artifact=data_transformation_artifact)
