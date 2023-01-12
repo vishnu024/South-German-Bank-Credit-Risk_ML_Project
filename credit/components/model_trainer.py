@@ -25,7 +25,7 @@ class ModelTrainer:
 
     def fine_tune(self):
         try:
-            
+            '''
             param_grid = {
                 'n_estimators': [50, 100, 200],
                 'max_depth': [None, 5, 10],
@@ -38,14 +38,22 @@ class ModelTrainer:
             grid_search.fit(x_train,y_train)
             best_params = grid_search.best_params_
             logging.info(f"Best Params:{best_params}")
+            '''
 
-           
+            '''
+            Not able to implement the Grid Search CV as the Neuro Lab was giving error of not able to handle the request 
+            and hence run the code on local machine and then using the same parameters.
+
+
+
+            '''
 
         except Exception as e:
             raise CreditException(e, sys)
 
     def train_model(self,x,y):
         try:
+            '''
             param_grid = {
                 'n_estimators': [50, 100, 150],
                 'max_depth': [None, 5, 10],
@@ -60,9 +68,10 @@ class ModelTrainer:
             grid_search.fit(x_train,y_train)
             best_params = grid_search.best_params_
             logging.info(f"Best Params:{best_params}")
-            rf_clf =  RandomForestClassifier(**best_params)
+            '''
+            rf_clf =  RandomForestClassifier(max_depth=90, max_features=2, n_estimators=200, random_state=42)
             rf_clf.fit(x,y)
-            return xgb_clf
+            return rf_clf
         except Exception as e:
             raise CreditException(e, sys)
 
