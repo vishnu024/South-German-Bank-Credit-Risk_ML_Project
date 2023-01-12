@@ -12,6 +12,9 @@ credit.egg-info/requires.txt
 credit.egg-info/top_level.txt
 credit/components/__init__.py
 credit/components/data_ingestion.py
+credit/components/data_transformation.py
+credit/components/data_validation.py
+credit/components/model_trainer.py
 credit/entity/__init__.py
 credit/entity/artifact_entity.py
 credit/entity/config_entity.py
