@@ -71,7 +71,7 @@ class ModelEvaluation:
             
             # accuracy using previous trained model
             
-            #input_feature_name = list(test_df.columns)
+            
             input_feature_name = list(transformer.feature_names_in_)
             input_arr =test_df[input_feature_name]
             input_arr =transformer.transform(test_df[input_feature_name])
