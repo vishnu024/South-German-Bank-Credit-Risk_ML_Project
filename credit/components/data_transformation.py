@@ -8,6 +8,7 @@ import pandas as pd
 from credit import utils
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import RobustScaler
 from imblearn.combine import SMOTETomek
 from credit.config import TARGET_COLUMN
 from collections import Counter
@@ -30,7 +31,11 @@ class DataTransformation:
     @classmethod
     def get_data_transformer_object(cls)->Pipeline:
         try:
-            pass
+            robust_scaler =  RobustScaler()
+            pipeline = Pipeline(steps=[
+                    ('RobustScaler',robust_scaler)
+                ])
+            return pipeline
         except Exception as e:
             raise CreditException(e, sys)
             
@@ -51,16 +56,16 @@ class DataTransformation:
             target_feature_test_df = test_df[TARGET_COLUMN]
             
             
-            '''
+            
             transformation_pipleine = DataTransformation.get_data_transformer_object()
             transformation_pipleine.fit(input_feature_train_df)
-            '''
+            
     
-            '''
+            
             #transforming input features
             input_feature_train_arr = transformation_pipleine.transform(input_feature_train_df)
             input_feature_test_arr = transformation_pipleine.transform(input_feature_test_df)
-            '''
+            
             
             smt = SMOTETomek(random_state=42)
             logging.info(f"Before resampling in training set Input: {input_feature_train_df.shape} Target:{target_feature_train_df.shape}")
@@ -87,18 +92,18 @@ class DataTransformation:
 
             
 
-            '''
+            
             utils.save_object(file_path=self.data_transformation_config.transform_object_path,
              obj=transformation_pipleine)
 
-            utils.save_object(file_path=self.data_transformation_config.target_encoder_path,
-            obj=label_encoder)
-            '''
+           # utils.save_object(file_path=self.data_transformation_config.target_encoder_path,
+            #obj=label_encoder)
+            
            
 
             
             data_transformation_artifact = artifact_entity.DataTransformationArtifact(
-                #transform_object_path=self.data_transformation_config.transform_object_path,
+                transform_object_path=self.data_transformation_config.transform_object_path,
                 transformed_train_path = self.data_transformation_config.transformed_train_path,
                 transformed_test_path = self.data_transformation_config.transformed_test_path,
                 #target_encoder_path = self.data_transformation_config.target_encoder_path

@@ -11,12 +11,10 @@ if __name__=="__main__":
           
 
           #data ingestion
+          
           start_training_pipeline()
-
-          '''
-          start_training_pipeline()
-          output_file = start_batch_prediction(input_file_path=file_path)
-          print(output_file)
-          '''
+          #output_file = start_batch_prediction(input_file_path=file_path)
+          #print(output_file)
+          
      except Exception as e:
           print(e)
