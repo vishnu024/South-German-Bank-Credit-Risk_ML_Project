@@ -13,7 +13,7 @@ from datetime import datetime
 import numpy as np
 
 
-with open('/config/workspace/saved_models/1/model/model.pkl', 'rb') as f:
+with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
 st.title('Classifying Credit')
