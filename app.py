@@ -16,6 +16,9 @@ import pickle
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
+with open('transformer.pkl', 'rb') as t:
+        transformer = pickle.load(t)       
+
 st.title('Bank Credit Risk Prediction')
 st.markdown('Model to  predict whether the person, described by the attributes of the dataset \
                 is a good (1) or a bad (0) credit risk')
@@ -153,8 +156,10 @@ with col2:
 
 st.text('')
 if st.button("Predict the Credibility"):
-    result = model.predict(
-                    np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
+    transformed= transformer(np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
+    result= model.predict(np.array(transformed))
+    #result = model.predict(
+                    #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
   
  
     st.text(result[0])
@@ -162,3 +167,6 @@ if st.button("Predict the Credibility"):
 
 st.text('')
 st.text('')
+st.markdown(
+    '`Create by` [Vishnu](https://www.linkedin.com/in/vishnukumar007) | \
+         `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
