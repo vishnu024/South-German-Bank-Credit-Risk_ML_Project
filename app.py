@@ -11,7 +11,7 @@ from credit import utils
 import os,sys
 from datetime import datetime
 import numpy as np
-
+import pickle
 
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
