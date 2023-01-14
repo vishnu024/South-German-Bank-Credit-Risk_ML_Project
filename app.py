@@ -20,10 +20,10 @@ col1, col2 = st.columns(2)
 
 with col1:
                 status_options = {
-    "... < 0 DM": 1,
-    "0 <= ... < 200 DM": 2,
-    "... >= 200 DM / salary assignments for at least 1 year": 3,
-    "no checking account": 4
+    "no checking account": 1,
+    "... < 0 DM": 2,
+    "0 <= ... < 200 DM": 3,
+    "... >= 200 DM / salary assignments for at least 1 year": 4
                                  }
 
                 selected_status = st.selectbox("Select Status:", list(status_options.keys()), index=0)
@@ -141,12 +141,16 @@ if st.button("Predict the Credibility"):
     transformed = transformer.transform(datat)
     result= model.predict(np.array(transformed))
 
-    st.text(result[0])
+    if result == 0.0:
+        st.subheader("Bad Credit Risk.")
+    else:
+        st.subheader("Good Credit Risk")
+    #st.subheader(result[0])
 
 
 st.text('')
 st.text('')
-st.header('Notes: 1 Refers to Good Credit and 0 refers to Bad credit risk.')
+st.subheader('Notes: 1 Refers to Good Credit and 0 refers to Bad credit risk.')
 st.markdown(
     '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
