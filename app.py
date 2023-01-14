@@ -36,7 +36,7 @@ with col1:
                 selected_status = st.selectbox("Select Status:", list(status_options.keys()), index=0)
                 status = status_options[selected_status]
 
-                duration = st.number_input("Enter duration in months:")
+                duration = st.number_input("Enter duration in months:",step=60)
 
                 credit_history_options = {
     "no credits taken/ all credits paid back duly": 0,
@@ -46,15 +46,54 @@ with col1:
     "critical account/ other credits existing (not at this bank)":4 
                                  }
 
-                selected_status = st.selectbox("Select Status:", list(credit_history_options.keys()), index=0)
-                credit_history = credit_history_options[selected_status]
+                selected_credit_history = st.selectbox("Select Status:", list(credit_history_options.keys()), index=0)
+                credit_history = credit_history_options[selected_credit_history]
+
+                purpose_options = {
+    "car (new)": 0,
+    "car (used)": 1,
+    "furniture/equipment": 2,
+    "radio/television": 3,
+    "domestic appliances": 4,
+    "repairs": 5,
+    "education": 6,
+    "vacation ": 7,
+    "retraining": 8,
+    "business": 9,
+    "others": 10
+
+                                 }
+
+                selected_purpose = st.selectbox("Select Purpose:", list(purpose_options.keys()), index=0)
+                purpose = purpose_options[selected_purpose]
 
 
+                amount = st.number_input("Enter Credit amount:",step=10000)
+
+                savings_options = {
+    "... < 100 DM": 1,
+    "100 <= ... < 500 DM": 2,
+    "500 <= ... < 1000 DM": 3,
+    ".. >= 1000 DM": 4,
+    "unknown/ no savings account": 5
+                                  }
+                selected_savings = st.selectbox("Select Savings account/bonds:", list(savings_options.keys()), index=0)
+                savings = savings_options[selected_savings]
+
+                employment_options = {
+    "Unemployed": 1,
+    "... < 1 year": 2,
+    "1 <= ... < 4 years": 3,
+    "4 <= ... < 7 years": 4,
+    ".. >= 7 years": 5
+                                  }
+                selected_employment = st.selectbox("Select Savings account/bonds:", list(employment_options.keys()), index=0)
+                employment_duration = employment_options[selected_employment]
+    
+            
                 
-                purpose = st.slider('purpose', 2.0, 4.4, 0.5)
-                amount = st.slider('amount', 2.0, 4.4, 0.5)
-                savings = st.slider('savings', 2.0, 4.4, 0.5)
-                employment_duration = st.slider('employment_duration', 2.0, 4.4, 0.5)
+                
+                
                 installment_rate = st.slider('installment_rate', 2.0, 4.4, 0.5)
                 personal_status_sex = st.slider('personal_status_sex', 2.0, 4.4, 0.5)
                 propertyl = st.slider('property', 2.0, 4.4, 0.5)
