@@ -1,18 +1,10 @@
 import streamlit as st
-#from credit.entity import artifact_entity,config_entity
-#from credit.exception import CreditException
-#from sklearn.pipeline import Pipeline
-#from credit.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
-#from credit.logger import logging
-#from credit.predictor import ModelResolver
 import pandas as pd
-#from credit.utils import load_object,save_object
-#from credit import utils
 import os,sys
-#from datetime import datetime
 import numpy as np
 import pickle
 
+st.beta_set_theme('streamlit-dark-theme')
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
@@ -27,7 +19,6 @@ st.header("Credit data")
 col1, col2 = st.columns(2)
 
 with col1:
-                #st.text("Sepal characteristics")
                 status_options = {
     "... < 0 DM": 1,
     "0 <= ... < 200 DM": 2,
@@ -94,19 +85,9 @@ with col1:
     
             
                 installment_rate = st.number_input("Enter Installment rate in percentage of disposable income",step=1)
-
-                
-                
-                
-                
-            
-                
-                
-               
-               
+       
 
 with col2:
-                #st.text("Pepal characteristics")
                 property_options = {
     "Real estate": 1,
     "if not option1 : building society savings agreement/ life insurance": 2,
@@ -151,10 +132,6 @@ with col2:
                 selected_personal_status = st.selectbox("Select Savings account/bonds:", list(personal_status_sex_options.keys()), index=0)
                 personal_status_sex = personal_status_sex_options[selected_personal_status]
 
-
-
-                
-
 st.text('')
 if st.button("Predict the Credibility"):
 
@@ -163,11 +140,7 @@ if st.button("Predict the Credibility"):
     datat = datat.rename(columns={'propertyl': 'property'})
     transformed = transformer.transform(datat)
     result= model.predict(np.array(transformed))
-    
-    #result = model.predict(
-                    #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
-    
-    
+
     st.text(result[0])
 
 
