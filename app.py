@@ -18,8 +18,7 @@ with open('model.pkl', 'rb') as f:
 
 st.title('Bank Credit Risk Prediction')
 st.markdown('Model to  predict whether the person, described by the attributes of the dataset \
-                is a good (1) or a bad (0) credit risk 
-           )
+                is a good (1) or a bad (0) credit risk')
 
 st.header("Credit data")
 col1, col2 = st.columns(2)
