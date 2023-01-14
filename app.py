@@ -25,19 +25,32 @@ st.header("Credit data")
 col1, col2 = st.columns(2)
 
 with col1:
-                st.text("Sepal characteristics")
+                #st.text("Sepal characteristics")
                 status_options = {
     "... < 0 DM": 1,
     "0 <= ... < 200 DM": 2,
     "... >= 200 DM / salary assignments for at least 1 year": 3,
     "no checking account": 4
-}
+                                 }
 
-                selected_status = st.selectbox("Select status:", list(status_options.keys()), index=0)
+                selected_status = st.selectbox("Select Status:", list(status_options.keys()), index=0)
                 status = status_options[selected_status]
 
-                duration = st.slider('duration', 2.0, 4.4, 0.5)
-                credit_history = st.slider('credit_history', 2.0, 4.4, 0.5)
+                duration = st.number_input("Enter duration in months:")
+
+                credit_history_options = {
+    "no credits taken/ all credits paid back duly": 0,
+    "all credits at this bank paid back duly": 1,
+    "existing credits paid back duly till now": 2,
+    "delay in paying off in the past": 3,
+    "critical account/ other credits existing (not at this bank)":4 
+                                 }
+
+                selected_status = st.selectbox("Select Status:", list(credit_history_options.keys()), index=0)
+                credit_history = credit_history_options[selected_status]
+
+
+                
                 purpose = st.slider('purpose', 2.0, 4.4, 0.5)
                 amount = st.slider('amount', 2.0, 4.4, 0.5)
                 savings = st.slider('savings', 2.0, 4.4, 0.5)
