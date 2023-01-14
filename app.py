@@ -163,9 +163,11 @@ if st.button("Predict the Credibility"):
     datat = datat.rename(columns={'propertyl': 'property'})
     transformed = transformer.transform(datat)
     result= model.predict(np.array(transformed))
+    df= pd.DataFrame(result)
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
-  
+    df['output_encoded'] = df['credit_risk'].replace({0: 'Bad', 1: 'Good'})
+    st.write(df)
     st.text(result[0])
 
 
