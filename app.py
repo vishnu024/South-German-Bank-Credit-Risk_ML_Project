@@ -1,15 +1,15 @@
 import streamlit as st
-from credit.entity import artifact_entity,config_entity
-from credit.exception import CreditException
-from sklearn.pipeline import Pipeline
-from credit.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
-from credit.logger import logging
-from credit.predictor import ModelResolver
+#from credit.entity import artifact_entity,config_entity
+#from credit.exception import CreditException
+#from sklearn.pipeline import Pipeline
+#from credit.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
+#from credit.logger import logging
+#from credit.predictor import ModelResolver
 import pandas as pd
-from credit.utils import load_object,save_object
-from credit import utils
+#from credit.utils import load_object,save_object
+#from credit import utils
 import os,sys
-from datetime import datetime
+#from datetime import datetime
 import numpy as np
 import pickle
 
@@ -26,7 +26,14 @@ col1, col2 = st.columns(2)
 
 with col1:
                 st.text("Sepal characteristics")
-                status = st.slider('status', 1.0, 8.0, 0.5)
+                status =  st.selectbox(
+    "Select Status:",
+    [("... < 0 DM", 1), 
+     (" 0 <= ... < 200 DM", 2), 
+     ("... >= 200 DM / salary assignments for at least 1 year", 3), 
+     ("no checking account", 4)],
+    index=0
+)
                 duration = st.slider('duration', 2.0, 4.4, 0.5)
                 credit_history = st.slider('credit_history', 2.0, 4.4, 0.5)
                 purpose = st.slider('purpose', 2.0, 4.4, 0.5)
