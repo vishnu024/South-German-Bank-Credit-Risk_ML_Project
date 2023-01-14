@@ -39,7 +39,7 @@ with col1:
     "no credits taken/ all credits paid back duly":4 
                                  }
 
-                selected_credit_history = st.selectbox("Select Status:", list(credit_history_options.keys()), index=0)
+                selected_credit_history = st.selectbox("Select Credit history:", list(credit_history_options.keys()), index=0)
                 credit_history = credit_history_options[selected_credit_history]
 
                 purpose_options = {
@@ -80,7 +80,7 @@ with col1:
     "4 <= ... < 7 years": 4,
     ".. >= 7 years": 5
                                   }
-                selected_employment = st.selectbox("Select Savings account/bonds:", list(employment_options.keys()), index=0)
+                selected_employment = st.selectbox("Select Present employment since:", list(employment_options.keys()), index=0)
                 employment_duration = employment_options[selected_employment]
     
             
@@ -129,7 +129,7 @@ with col2:
     "Male : married/widowed": 4,
     "Female : single": 5
                                   }
-                selected_personal_status = st.selectbox("Select Savings account/bonds:", list(personal_status_sex_options.keys()), index=0)
+                selected_personal_status = st.selectbox("Select Gender and Personal status:", list(personal_status_sex_options.keys()), index=0)
                 personal_status_sex = personal_status_sex_options[selected_personal_status]
 
 st.text('')
@@ -148,5 +148,5 @@ st.text('')
 st.text('')
 st.markdown('1 Refers to Good Credit and 0 refers to Bad credit risk')
 st.markdown(
-    '`Create by` [Vishnu](https://www.linkedin.com/in/vishnukumar007) | \
+    '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
