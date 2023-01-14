@@ -142,15 +142,14 @@ if st.button("Predict the Credibility"):
     result= model.predict(np.array(transformed))
 
     if result == 0.0:
-        st.subheader("Bad Credit Risk.")
+        st.subheader(':red[Bad Credit Risk] :sweat:')
     else:
-        st.subheader("Good Credit Risk")
-    #st.subheader(result[0])
-
+        st.subheader(':green[Good Credit Risk] :blush:')
+    
+        
 
 st.text('')
 st.text('')
-st.subheader('Notes: 1 Refers to Good Credit and 0 refers to Bad credit risk.')
 st.markdown(
     '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
