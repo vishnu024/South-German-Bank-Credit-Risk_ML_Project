@@ -26,14 +26,16 @@ col1, col2 = st.columns(2)
 
 with col1:
                 st.text("Sepal characteristics")
-                status =  st.selectbox(
-    "Select Status:",
-    [("... < 0 DM", 1), 
-     (" 0 <= ... < 200 DM", 2), 
-     ("... >= 200 DM / salary assignments for at least 1 year", 3), 
-     ("no checking account", 4)]
-    
-)
+                status_options = {
+    "... < 0 DM": 1,
+    "0 <= ... < 200 DM": 2,
+    "... >= 200 DM / salary assignments for at least 1 year": 3,
+    "no checking account": 4
+}
+
+                selected_status = st.selectbox("Select status:", list(status_options.keys()), index=0)
+                status = status_options[selected_status]
+
                 duration = st.slider('duration', 2.0, 4.4, 0.5)
                 credit_history = st.slider('credit_history', 2.0, 4.4, 0.5)
                 purpose = st.slider('purpose', 2.0, 4.4, 0.5)
