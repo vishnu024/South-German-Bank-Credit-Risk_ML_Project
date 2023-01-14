@@ -4,7 +4,7 @@ import os,sys
 import numpy as np
 import pickle
 
-st.set_style("dark")
+st.set_theme('dark')
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
