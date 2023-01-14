@@ -146,7 +146,7 @@ if st.button("Predict the Credibility"):
 
 st.text('')
 st.text('')
-st.markdown('1 Refers to Good Credit and 0 refers to Bad credit risk')
+st.header('Notes: 1 Refers to Good Credit and 0 refers to Bad credit risk.')
 st.markdown(
     '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
