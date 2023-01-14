@@ -91,18 +91,38 @@ with col1:
                 employment_duration = employment_options[selected_employment]
     
             
+                installment_rate = st.number_input("Enter Installment rate in percentage of disposable income",step=1)
+
+                personal_status_sex_options = {
+    "Male : divorced/separated": 1,
+    "Female : divorced/separated/married": 2,
+    "Male : single": 3,
+    "Male : married/widowed": 4,
+    "Female : single": 5
+                                  }
+                selected_personal_status = st.selectbox("Select Savings account/bonds:", list(personal_status_sex_options.keys()), index=0)
+                personal_status_sex = personal_status_sex_options[selected_personal_status]
                 
                 
                 
-                installment_rate = st.slider('installment_rate', 2.0, 4.4, 0.5)
-                personal_status_sex = st.slider('personal_status_sex', 2.0, 4.4, 0.5)
-                propertyl = st.slider('property', 2.0, 4.4, 0.5)
+            
+                
                 age = st.slider('age', 2.0, 4.4, 0.5)
                 number_credits = st.slider('number_credits', 2.0, 4.4, 0.5)
                 job = st.slider('job', 2.0, 4.4, 0.5)
 
 with col2:
-                st.text("Pepal characteristics")
+                #st.text("Pepal characteristics")
+                property_options = {
+    "Real estate": 1,
+    "if not option1 : building society savings agreement/ life insurance": 2,
+    "if not option1/option2 : car or other, not in attribute 6": 3,
+    "unknown / no property": 4
+                                  }
+                selected_property = st.selectbox("Select Property:", list(property_options.keys()), index=0)
+                propertyl = property_options[selected_property]
+
+
                 people_liable = st.slider('people_liable', 1.0, 7.0, 0.5)
                 telephone = st.slider('telephone', 0.1, 2.5, 0.5)
 
