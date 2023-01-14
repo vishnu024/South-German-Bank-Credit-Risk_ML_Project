@@ -107,24 +107,48 @@ with col1:
                 
             
                 
-                age = st.slider('age', 2.0, 4.4, 0.5)
-                number_credits = st.slider('number_credits', 2.0, 4.4, 0.5)
-                job = st.slider('job', 2.0, 4.4, 0.5)
+                
+               
+               
 
 with col2:
                 #st.text("Pepal characteristics")
                 property_options = {
     "Real estate": 1,
     "if not option1 : building society savings agreement/ life insurance": 2,
-    "if not option1/option2 : car or other, not in attribute 6": 3,
+    "if not option1/option2 : car or other": 3,
     "unknown / no property": 4
                                   }
                 selected_property = st.selectbox("Select Property:", list(property_options.keys()), index=0)
                 propertyl = property_options[selected_property]
 
+                age = st.number_input("Enter Age in years:",step=1)
 
-                people_liable = st.slider('people_liable', 1.0, 7.0, 0.5)
-                telephone = st.slider('telephone', 0.1, 2.5, 0.5)
+                number_credits = st.number_input("Enter Number of existing credits at this bank:",step=1)
+
+                job_options = {
+    "unemployed/ unskilled - non-resident": 1,
+    "unskilled - resident": 2,
+    "skilled employee / official": 3,
+    "management/ self-employed/highly qualified employee/ officer": 4
+                                  }
+                selected_job = st.selectbox("Select Job:", list(job_options.keys()), index=0)
+                job = job_options[selected_job]
+
+
+                people_liable = st.number_input("Enter Number of people being liable to provide maintenance for:",step=1)
+
+                telephone_options = {
+    "None": 1,
+    "Yes, registered under the customers name": 2,
+    
+                                  }
+                selected_telephone = st.selectbox("Select Savings account/bonds:", list(telephone_options.keys()), index=0)
+                telephone = telephone_options[selected_telephone]
+
+
+
+                
 
 st.text('')
 if st.button("Predict type of Iris"):
