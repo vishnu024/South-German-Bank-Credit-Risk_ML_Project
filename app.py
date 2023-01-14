@@ -47,10 +47,11 @@ with col2:
 
 st.text('')
 if st.button("Predict type of Iris"):
-  
- result = model.predict(
+    result = model.predict(
                     np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone, credit_risk]]))
-st.text(result[0])
+  
+ 
+    st.text(result[0])
 
 
 st.text('')
