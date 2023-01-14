@@ -162,8 +162,8 @@ if st.button("Predict the Credibility"):
     
         
 
-st.text("Note: The Deutsche mark was Germany's legal currency from 1948 to 2002. In 2002, Germany replaced the Deutsche mark with the Euro.")
-st.text('')
+st.text("Note: The Deutsche mark (DM) was Germany's legal currency from 1948 to 2002.")
+st.text("In 2002, Germany replaced the Deutsche mark with the Euro.")
 st.markdown(
     '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
