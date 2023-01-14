@@ -16,10 +16,10 @@ import pickle
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
-st.title('Classifying Credit')
-st.markdown('model to classify Credit into \
-                (setosa, versicolor, virginica) based on their sepal/petal \
-                and length/width.')
+st.title('Bank Credit Risk Prediction')
+st.markdown('Model to  predict whether the person, described by the attributes of the dataset \
+                is a good (1) or a bad (0) credit risk \ 
+           )
 
 st.header("Credit data")
 col1, col2 = st.columns(2)
@@ -93,15 +93,7 @@ with col1:
             
                 installment_rate = st.number_input("Enter Installment rate in percentage of disposable income",step=1)
 
-                personal_status_sex_options = {
-    "Male : divorced/separated": 1,
-    "Female : divorced/separated/married": 2,
-    "Male : single": 3,
-    "Male : married/widowed": 4,
-    "Female : single": 5
-                                  }
-                selected_personal_status = st.selectbox("Select Savings account/bonds:", list(personal_status_sex_options.keys()), index=0)
-                personal_status_sex = personal_status_sex_options[selected_personal_status]
+                
                 
                 
                 
@@ -143,15 +135,25 @@ with col2:
     "Yes, registered under the customers name": 2,
     
                                   }
-                selected_telephone = st.selectbox("Select Savings account/bonds:", list(telephone_options.keys()), index=0)
+                selected_telephone = st.selectbox("Select Telephone:", list(telephone_options.keys()), index=0)
                 telephone = telephone_options[selected_telephone]
+
+                personal_status_sex_options = {
+    "Male : divorced/separated": 1,
+    "Female : divorced/separated/married": 2,
+    "Male : single": 3,
+    "Male : married/widowed": 4,
+    "Female : single": 5
+                                  }
+                selected_personal_status = st.selectbox("Select Savings account/bonds:", list(personal_status_sex_options.keys()), index=0)
+                personal_status_sex = personal_status_sex_options[selected_personal_status]
 
 
 
                 
 
 st.text('')
-if st.button("Predict type of Iris"):
+if st.button("Predict the Credibility"):
     result = model.predict(
                     np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
   
