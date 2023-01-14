@@ -46,11 +46,16 @@ with col2:
 
 st.text('')
 if st.button("Predict type of Iris"):
-    model = load_object(file_path=model_resolver.get_latest_model_path())
+    
+    #model = load_object(file_path=model_resolver.get_latest_model_path())
+     with open('/config/workspace/saved_models/1/model/model.pkl', 'rb') as f:
+        model = pickle.load(f)
 
-    result = model.predict(
+     
+
+result = model.predict(
                     np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone, credit_risk]]))
-    t.text(result[0])
+t.text(result[0])
 
 
 st.text('')
