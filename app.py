@@ -166,9 +166,10 @@ if st.button("Predict the Credibility"):
     
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
-    mapping = {0: 'Bad', 1: 'Good'}
-    result.map(mapping)
-    st.text(result[0])
+    df=pd.DataFrame(result)
+    df['result_encoded'] = df['result'].replace({0: 'Bad', 1: 'Good'})
+    st.write(df)
+    #st.text(result[0])
 
 
 st.text('')
