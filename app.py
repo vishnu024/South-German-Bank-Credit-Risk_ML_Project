@@ -31,8 +31,8 @@ with col1:
     [("... < 0 DM", 1), 
      (" 0 <= ... < 200 DM", 2), 
      ("... >= 200 DM / salary assignments for at least 1 year", 3), 
-     ("no checking account", 4)],
-    index=0
+     ("no checking account", 4)]
+    
 )
                 duration = st.slider('duration', 2.0, 4.4, 0.5)
                 credit_history = st.slider('credit_history', 2.0, 4.4, 0.5)
