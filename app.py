@@ -158,7 +158,7 @@ st.text('')
 if st.button("Predict the Credibility"):
     data = np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]])
     data = pd.DataFrame(data, columns=['status', 'duration', 'credit_history', 'purpose', 'amount', 'savings', 'employment_duration', 'installment_rate', 'personal_status_sex', 'propertyl', 'age', 'number_credits', 'job', 'people_liable', 'telephone'])
-    transformed = transformer.transform(data)
+transformed = transformer.transform(data)
 result= model.predict(np.array(transformed))
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
