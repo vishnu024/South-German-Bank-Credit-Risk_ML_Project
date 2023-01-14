@@ -43,17 +43,17 @@ with col1:
                 credit_history = credit_history_options[selected_credit_history]
 
                 purpose_options = {
-    "car (new)": 0,
-    "car (used)": 1,
-    "furniture/equipment": 2,
-    "radio/television": 3,
-    "domestic appliances": 4,
-    "repairs": 5,
-    "education": 6,
-    "vacation ": 7,
-    "retraining": 8,
-    "business": 9,
-    "others": 10
+    "OTHERS": 0,
+    "CAR (NEW)": 1,
+    "CAR (USED)": 2,
+    "FURNITURE/EQUIPMENT": 3,
+    "RADIO/TELEVISION": 4,
+    "DOMESTIC APPLIANCES": 5,
+    "REPAIRS": 6,
+    "EDUCATION ": 7,
+    "VACATION": 8,
+    "RETRAINING": 9,
+    "BUSINESS": 10
 
                                  }
 
@@ -64,11 +64,11 @@ with col1:
                 amount = st.number_input("Enter Credit amount:",step=10000)
 
                 savings_options = {
-    "... < 100 DM": 1,
-    "100 <= ... < 500 DM": 2,
-    "500 <= ... < 1000 DM": 3,
-    ".. >= 1000 DM": 4,
-    "unknown/ no savings account": 5
+    "UNKNOWN/NO SAVINGS ACCOUNT": 1,
+    "... <  100 DM": 2,
+    "100 <= ... <  500 DM": 3,
+    "500 <= ... < 1000 DM": 4,
+    "... >= 1000 DM": 5
                                   }
                 selected_savings = st.selectbox("Select Savings account/bonds:", list(savings_options.keys()), index=0)
                 savings = savings_options[selected_savings]
@@ -82,17 +82,22 @@ with col1:
                                   }
                 selected_employment = st.selectbox("Select Present employment since:", list(employment_options.keys()), index=0)
                 employment_duration = employment_options[selected_employment]
-    
-            
-                installment_rate = st.number_input("Enter Installment rate in percentage of disposable income",step=1)
-       
+
+                installment_options = {
+    ">= 35": 1,
+    "25 <= ...": 2,
+    "20 <= ... ": 3,
+    "< 20": 4
+                                      }
+                selected_installment = st.selectbox("Select Installment rate in percentage of disposable income:", list(installment_options.keys()), index=0)
+                installment_rate = installment_options[selected_installment]
 
 with col2:
                 property_options = {
-    "Real estate": 1,
-    "if not option1 : building society savings agreement/ life insurance": 2,
-    "if not option1/option2 : car or other": 3,
-    "unknown / no property": 4
+    "UNKNOWN / NO PROPERTY": 1,
+    "CAR OR OTHER": 2,
+    "BUILDING SOC. SAVINGS AGR./LIFE INSURANCE": 3,
+    "REAL ESTATE": 4
                                   }
                 selected_property = st.selectbox("Select Property:", list(property_options.keys()), index=0)
                 propertyl = property_options[selected_property]
@@ -100,7 +105,16 @@ with col2:
 
                 age = st.number_input("Enter Age in years:",step=1)
 
-                number_credits = st.number_input("Enter Number of existing credits at this bank:",step=1)
+                credits_options = {
+    "1": 1,
+    "2-3": 2,
+    "4-5": 3,
+    ">=6": 4
+                                  }
+                selected_credits = st.selectbox("Select Number of existing credits at this bank:", list(credits_options.keys()), index=0)
+                number_credits = credits_options[selected_credits]
+
+                
 
                 job_options = {
     "unemployed/ unskilled - non-resident": 1,
@@ -115,7 +129,7 @@ with col2:
                 people_liable = st.number_input("Enter Number of people being liable to provide maintenance for:",step=1)
 
                 telephone_options = {
-    "None": 1,
+    "No": 1,
     "Yes, registered under the customers name": 2,
     
                                   }
@@ -148,7 +162,7 @@ if st.button("Predict the Credibility"):
     
         
 
-st.text('')
+st.text("Note: The Deutsche mark was Germany's legal currency from 1948 to 2002. In 2002, Germany replaced the Deutsche mark with the Euro.")
 st.text('')
 st.markdown(
     '`Created by` [Vishnu Kumar](https://www.linkedin.com/in/vishnukumar007) | \
