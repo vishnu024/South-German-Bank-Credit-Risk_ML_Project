@@ -115,6 +115,7 @@ with col2:
                                   }
                 selected_property = st.selectbox("Select Property:", list(property_options.keys()), index=0)
                 propertyl = property_options[selected_property]
+                
 
                 age = st.number_input("Enter Age in years:",step=1)
 
@@ -159,6 +160,7 @@ if st.button("Predict the Credibility"):
 
     data = np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]])
     datat = pd.DataFrame(data, columns=['status', 'duration', 'credit_history', 'purpose', 'amount', 'savings', 'employment_duration', 'installment_rate', 'personal_status_sex', 'propertyl', 'age', 'number_credits', 'job', 'people_liable', 'telephone'])
+    datat = df.rename(columns={'propertyl': 'property'})
     transformed = transformer.transform(datat)
     result= model.predict(np.array(transformed))
     #result = model.predict(
