@@ -166,7 +166,7 @@ if st.button("Predict the Credibility"):
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
   
-    st.text(result[0])
+    st.text(result)
 
 
 st.text('')
