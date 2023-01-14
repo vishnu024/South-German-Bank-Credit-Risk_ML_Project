@@ -156,7 +156,7 @@ with col2:
 
 st.text('')
 if st.button("Predict the Credibility"):
-    transformed= transformer.predict(np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
+    transformed= transformer.transform(np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
     result= model.predict(np.array(transformed))
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
