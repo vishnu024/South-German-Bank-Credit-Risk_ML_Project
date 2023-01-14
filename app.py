@@ -4,7 +4,7 @@ import os,sys
 import numpy as np
 import pickle
 
-st.set_theme('dark')
+
 with open('model.pkl', 'rb') as f:
         model = pickle.load(f)
 
@@ -146,7 +146,7 @@ if st.button("Predict the Credibility"):
 
 st.text('')
 st.text('')
-st.markdown('1 is Good and 0 is bad credit risk')
+st.markdown('1 Refers to Good Credit and 0 refers to Bad credit risk')
 st.markdown(
     '`Create by` [Vishnu](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
