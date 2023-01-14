@@ -87,6 +87,7 @@ class DataTransformation:
             #save numpy array
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_train_path,
                                         array=train_arr)
+            logging.info(f"Train arr: {train_arr[:]}")
 
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)

@@ -41,11 +41,11 @@ with col1:
                 duration = st.number_input("Enter duration in months:",step=60)
 
                 credit_history_options = {
-    "no credits taken/ all credits paid back duly": 0,
-    "all credits at this bank paid back duly": 1,
+    "critical account/ other credits existing (not at this bank)": 0,
+    "delay in paying off in the past": 1,
     "existing credits paid back duly till now": 2,
-    "delay in paying off in the past": 3,
-    "critical account/ other credits existing (not at this bank)":4 
+    "all credits at this bank paid back duly": 3,
+    "no credits taken/ all credits paid back duly":4 
                                  }
 
                 selected_credit_history = st.selectbox("Select Status:", list(credit_history_options.keys()), index=0)
@@ -166,11 +166,12 @@ if st.button("Predict the Credibility"):
     #result = model.predict(
                     #np.array([[status, duration, credit_history, purpose, amount, savings, employment_duration, installment_rate, personal_status_sex, propertyl, age, number_credits, job, people_liable, telephone]]))
   
-    st.text(result)
+    st.text(result[0])
 
 
 st.text('')
 st.text('')
+st.markdown('1 is Good and 0 is bad credit risk')
 st.markdown(
     '`Create by` [Vishnu](https://www.linkedin.com/in/vishnukumar007) | \
          `Code:` [GitHub](https://github.com/vishnu024/South-German-Bank-Credit-Risk_ML_Project)')
