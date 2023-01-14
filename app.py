@@ -12,10 +12,10 @@ with open('transformer.pkl', 'rb') as t:
         transformer = pickle.load(t)       
 
 st.title('Bank Credit Risk Prediction')
-st.markdown('Model to  predict whether the person, described by the attributes of the dataset \
-                is a good (1) or a bad (0) credit risk')
+st.markdown('Created a Model to  predict whether the person, described by the attributes of the dataset \
+                is a good (1) or a bad (0) credit risk.')
 
-st.header("Credit data")
+st.header("User Inputs:")
 col1, col2 = st.columns(2)
 
 with col1:
