@@ -56,7 +56,7 @@ The Prediction of Credit Risk Final Model Run in Local Enviornment
 
 ![Home_Page](https://user-images.githubusercontent.com/19362546/216977537-fa26c220-a699-46bd-a8cd-c9090d60a7f0.PNG)
 
-https://www.youtube.com/watch?v=nvPOUdz5PL4
+
 
 
 2. Result Page :
